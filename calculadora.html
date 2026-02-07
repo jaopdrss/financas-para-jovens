@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Calculadora de Investimentos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topo">
+<h1>Calculadora de Investimentos</h1>
+</header>
+
+<main>
+<article>
+<h2>Simule seus investimentos</h2>
+
+<label>Valor inicial (R$)</label><br>
+<input type="number" id="valor"><br><br>
+
+<label>Taxa mensal (%)</label><br>
+<input type="number" id="taxa"><br><br>
+
+<label>Meses</label><br>
+<input type="number" id="meses"><br><br>
+
+<button onclick="calcular()">Calcular</button>
+
+<h3 id="resultado"></h3>
+</article>
+</main>
+
+<script>
+function calcular() {
+    let valor = Number(document.getElementById("valor").value);
+    let taxa = Number(document.getElementById("taxa").value) / 100;
+    let meses = Number(document.getElementById("meses").value);
+
+    let total = valor * Math.pow(1 + taxa, meses);
+    document.getElementById("resultado").innerHTML =
+        "Valor final: R$ " + total.toFixed(2);
+}
+</script>
+
+</body>
+</html>
